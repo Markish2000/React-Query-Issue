@@ -4,14 +4,16 @@ import { githubApi } from '../../api/githubApi';
 
 import { Issue } from '../interfaces';
 
-const getIssueInfo = async (issueNumber: number): Promise<Issue> => {
+export const getIssueInfo = async (issueNumber: number): Promise<Issue> => {
   const url = `/issues/${issueNumber}`;
   const { data } = await githubApi.get<Issue>(url);
 
   return data;
 };
 
-const getIssueComments = async (issueNumber: number): Promise<Issue[]> => {
+export const getIssueComments = async (
+  issueNumber: number
+): Promise<Issue[]> => {
   const url = `/issues/${issueNumber}/comments`;
   const { data } = await githubApi.get<Issue[]>(url);
 

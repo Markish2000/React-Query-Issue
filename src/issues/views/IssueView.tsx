@@ -10,9 +10,9 @@ export const IssueView = () => {
   const { id = '0' } = params;
   const { commentsQuery, issueQuery } = useIssue(+id);
 
-  if (issueQuery.isLoading) return <LoadingIcon />;
+  if (issueQuery?.isLoading) return <LoadingIcon />;
 
-  if (!issueQuery.data) return <Navigate to='./issues/list' />;
+  if (!issueQuery?.data) return <Navigate to='./issues/list' />;
 
   return (
     <div className='row mb-5'>
